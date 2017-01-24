@@ -1,10 +1,11 @@
-// Place your settings in this file to overwrite the default settings
 {
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
+
     "go.formatOnSave": true,
     "go.buildOnSave": true,
     "go.lintOnSave": true,
+    "go.lintTool": "golint",
     "go.vetOnSave": true,
     "go.buildFlags": ["-i"],
     "go.lintFlags": [],
@@ -16,8 +17,11 @@
     "go.formatTool": "goreturns",
     "go.gocodeAutoBuild": true,
 
+    "editor.fontSize": 14,
     "editor.formatOnType": true,
     "editor.mouseWheelZoom": true,
+    "editor.rulers": [80,120],
+    "editor.trimAutoWhitespace": true,
 
     "files.exclude": {
         "**/.git": true,
@@ -28,6 +32,15 @@
         "**/public/dist": true,
         "**/.vscode": true
     },
-    "editor.trimAutoWhitespace": true,
-    "files.trimTrailingWhitespace": false
+    "files.trimTrailingWhitespace": false,
+
+    "spellchecker.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ],
+
+    "spellchecker.ignoreFileExtensions": [
+        ".go"
+    ]
 }

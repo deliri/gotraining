@@ -31,9 +31,9 @@ This example shows a simple web api running with some basic load.
 		go build
 		GOMAXPROCS=1 GODEBUG=schedtrace=1000 ./schedtrace
 
-	Start to apply load to the web api for 5 seconds.
+	Put some load of the web application.
 
-		go-wrk -m POST -c 500 -d 5 "http://localhost:4000/sendjson"
+		hey -m POST -c 8 -n 10000 "http://localhost:4000/sendjson"
 	
 	Look at the load on the logical processor. We can only see runnable goroutines. After 5 seconds
 	we don't see any more goroutines in the trace.
@@ -47,9 +47,9 @@ This example shows a simple web api running with some basic load.
 
 		GOMAXPROCS=1 GODEBUG=schedtrace=1000 ./schedtrace leak
 
-	Start to apply load to the web api for 5 seconds.
+	Put some load of the web application.
 
-		go-wrk -m POST -c 500 -d 5 "http://localhost:4000/sendjson"
+		hey -m POST -c 8 -n 10000 "http://localhost:4000/sendjson"
 	
 	Look at the load on the logical processor. We can only see runnable goroutines. After 5 seconds
 	we still see goroutines in the trace.
@@ -72,6 +72,6 @@ http://www.goinggo.net/2015/02/scheduler-tracing-in-go.html
 
 ## Code Review
 
-[Scheduler Trace](trace.go) ([Go Playground](http://play.golang.org/p/iyRaSsjQSS))
+[Scheduler Trace](trace.go) ([Go Playground](https://play.golang.org/p/iyRaSsjQSS))
 ___
 All material is licensed under the [Apache License Version 2.0, January 2004](http://www.apache.org/licenses/LICENSE-2.0).
